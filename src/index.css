@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Lato:ital,wght@0,400;1,300;1,400&family=Roboto:ital,wght@0,700;1,700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Lato:ital,wght@0,400;1,300;1,400&family=Orelega+One&family=Roboto:ital,wght@0,700;1,700;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Lato:ital,wght@0,400;1,300;1,400&family=Orelega+One&family=Playball&family=Roboto:ital,wght@0,700;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.myContainer {
+  @apply sm:px-8 px-3 w-full mx-auto;
+}
+.main-nav__svg:hover path {
+  @apply fill-primary;
+}
+
+.active {
+  @apply text-primary;
+}
+.carousel__slide-1 {
+  @apply sm:bottom-1/4 bottom-4 sm:right-16 right-6;
+}
+.carousel__slide-2 {
+  @apply sm:left-16 left-6 top-3.5 sm:top-1/4;
+}
+.carousel__select-content label {
+  @apply before:border-t-0 after:border-t-0;
+}
+
+.bottom-nav__link:hover path {
+  @apply fill-primary;
+}
+.path-parent {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+}
+.path-parent::after {
+  clip-path: polygon(0 95%, 100% 78%, 100% 100%, 0% 100%);
+}
