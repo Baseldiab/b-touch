@@ -77,7 +77,7 @@ const config = {
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-  plugins: [require("@tailwindcss/custom-forms"), require("tailwindcss")],
+  plugins: [require("tailwindcss")],
 };
 
 export default withMT(config);
