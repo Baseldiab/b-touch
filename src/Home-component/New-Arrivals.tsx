@@ -57,9 +57,9 @@ const Arrival: React.FC = () => {
             loop={true}
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={"auto"}
+            slidesPerView={5}
             coverflowEffect={{
-              rotate: 15,
+              rotate: 20,
               stretch: 0,
               depth: 400,
               modifier: 1,

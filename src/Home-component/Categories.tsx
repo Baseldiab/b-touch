@@ -47,13 +47,11 @@ const Categories: React.FC = () => {
         </div>
       </div>
 
-      <div className="categories__mobile-screen !px-0 block lg:hidden">
+      <div className="categories__mobile-screen pl-2 px-0 block lg:hidden">
         <Swiper
-          initialSlide={0}
           slidesPerView={3.3}
           navigation={false}
           spaceBetween={5}
-          centeredSlides={true}
           className=" categories__swiper mySwiper"
         >
           {categories.map((item) => {
