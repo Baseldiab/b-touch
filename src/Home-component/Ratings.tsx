@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 import {
   faStar as faStarSolid,
   faStarHalfAlt,
@@ -7,6 +8,7 @@ import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
 interface ProductProps {
   rating: number;
 }
+
 const Rating: React.FC<ProductProps> = ({ rating }) => {
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;
@@ -35,5 +37,9 @@ const Rating: React.FC<ProductProps> = ({ rating }) => {
       ))}
     </div>
   );
+};
+
+Rating.propTypes = {
+  rating: PropTypes.number.isRequired,
 };
 export default Rating;

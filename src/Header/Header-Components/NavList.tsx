@@ -10,6 +10,7 @@ const NavList = (
       className="flex items-center gap-l-2 p-1 "
     >
       <NavLink
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         className={`uppercase text-base font-roboto font-bold ${({
           isActive,
           isPending,

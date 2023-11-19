@@ -4,7 +4,7 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { agency, carBotNav, years } from "../../Lists";
 
 const SelectVehicle: React.FC = () => {
-  const initialOption: string = "";
+  const initialOption = "";
 
   const [selectedVehicle, setSelectedVehicle] = useState<string>(initialOption);
   const [selectedModel, setSelectedModel] = useState<string | undefined>(

@@ -9,9 +9,10 @@ import { carBotNav } from "../../Lists";
 
 const BottomNav: React.FC = () => {
   return (
-    <div className=" bottom-nav__menu-screen h-14 fixed bottom-0 right-0 left-0 bg-mainBgColor z-40 flex items-center lg:hidden">
+    <footer className=" bottom-nav__menu-screen h-14 fixed bottom-0 right-0 left-0 bg-mainBgColor z-40 flex items-center lg:hidden">
       <div className="bottom-nav__tabs myContainer flex justify-between items-center py-1">
         <NavLink
+          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
           className={`bottom-nav__links textFooterColor text-center capitalize text-sm font-orelega font-sm ${({
             isActive,
             isPending,
@@ -118,7 +119,7 @@ const BottomNav: React.FC = () => {
           account
         </Link>
       </div>
-    </div>
+    </footer>
   );
 };
 export default BottomNav;

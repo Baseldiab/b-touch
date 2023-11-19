@@ -2,7 +2,7 @@ import React from "react";
 
 const AdFour: React.FC = () => {
   return (
-    <section className="ad-4 pt-10 bg-addBg relative path-parent after:absolute after:top-0 after:left-0 after:bg-add4Bg after:w-full after:h-full after:z-min ">
+    <section className="ad-4 pt-10 bg-addBg relative path-parent after:absolute after:top-0 after:left-0 after:bg-add4Bg after:w-full after:h-full after:z-min lg:my-10">
       <div className="mobile:pb-2  md:pb-10 lg:pt-52 pt-16">
         <div className="ad__img w-3/5 ml-auto ">
           <img src="images/ad4.png" alt="ad" />

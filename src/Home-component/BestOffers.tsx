@@ -19,7 +19,7 @@ const BestOffers: React.FC = () => {
     <section className="best-offers bg-black py-4">
       <div className="myContainer">
         <div className="best-offers__header my-3 grid  grid-cols-1 items-center">
-          <h2 className="best-offers-head font-normal font-orelega text-sm lg:text-3xl text-buttonColor text-center uppercase  ">
+          <h2 className="best-offers-head font-normal font-orelega text-sm sm:text-xl lg:text-3xl text-textColor text-center uppercase  ">
             best offers
           </h2>
           <div className="best-offers__btn  flex justify-end">
@@ -29,7 +29,7 @@ const BestOffers: React.FC = () => {
           </div>
         </div>
 
-        <div className="best-offers__products grid  app:grid-cols-3 lg:!grid-cols-6 grid-cols-2 gap-2 md:gap-4 justify-center items-center">
+        <div className="best-offers__products grid  app:grid-cols-3 lg:!grid-cols-6 grid-cols-2 gap-2 md:gap-4 justify-center items-center my-3">
           {bestOffers.slice(0, getWindowCardsCount()).map((item) => {
             return (
               <div

@@ -15,55 +15,106 @@ interface Offers {
   id: number;
   img: string;
 }
+interface Categories {
+  id: number;
+  img: string;
+  category: string;
+}
 
-export const categories: Offers[] = [
+export const brands: Offers[] = [
+  {
+    id: 1,
+    img: "images/brands/01Michelin.png",
+  },
+  {
+    id: 2,
+    img: "images/brands/02Mitsubishi.png",
+  },
+  {
+    id: 3,
+    img: "images/brands/03Continental.png",
+  },
+  {
+    id: 4,
+    img: "images/brands/04BF.png",
+  },
+  {
+    id: 5,
+    img: "images/brands/05maxxis.png",
+  },
+  {
+    id: 6,
+    img: "images/brands/06GT.png",
+  },
+  {
+    id: 7,
+    img: "images/brands/07FIRELLI.png",
+  },
+  {
+    id: 8,
+    img: "images/brands/08motul.png",
+  },
+];
+export const categories: Categories[] = [
   {
     id: 1,
     img: "images/categories/bodyCover01.png",
+    category: "Car Body Cover",
   },
   {
     id: 2,
     img: "images/categories/steeringWheel01.png",
+    category: "Steering Wheel Cover",
   },
   {
     id: 3,
     img: "images/categories/mobileCharger01.png",
+    category: "Car Mobile Charger",
   },
   {
     id: 4,
     img: "images/categories/seatCover01.png",
+    category: "Car Seat Covers",
   },
   {
     id: 5,
     img: "images/categories/smartStereo.png",
+    category: "Smart Car Stereo",
   },
   {
     id: 6,
     img: "images/categories/horns.png",
+    category: "Car Horns",
   },
   {
     id: 7,
     img: "images/categories/bodyCover02.png",
+    category: "Car Body Cover",
   },
   {
     id: 8,
     img: "images/categories/steeringWheel02.png",
+    category: "Steering Wheel Cover",
   },
   {
     id: 9,
     img: "images/categories/mobileCharger02.png",
+    category: "Car Mobile Charger",
   },
   {
     id: 10,
     img: "images/categories/seatCover02.png",
+    category: "Car Seat Covers",
   },
   {
     id: 11,
     img: "images/categories/smartStereo02.png",
+    category: "Smart Car Stereo",
   },
   {
     id: 12,
     img: "images/categories/horns02.png",
+    category: "Car Horns",
   },
 ];
 

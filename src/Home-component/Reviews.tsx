@@ -15,20 +15,21 @@ const Reviews: React.FC = () => {
     }
   }
   return (
-    <section className="best-offers  lg:bg-black py-4">
+    <section className="best-offers  lg:bg-black py-4 ">
       <div className="myContainer">
-        <h2 className="best-offers-head font-normal font-orelega text-sm lg:text-3xl lg:text-textColor text-buttonColor drop-shadow-xl uppercase text-center md:my-6 my-4">
+        <h2 className="best-offers-head font-normal font-orelega text-sm sm:text-xl lg:text-3xl lg:text-textColor text-buttonColor drop-shadow-xl uppercase text-center md:my-6 my-4">
           What People Say About Us?
         </h2>
 
-        <div className="best-offers__products grid  app:grid-cols-3 lg:!grid-cols-6 grid-cols-2 gap-2 md:gap-4 justify-center items-center  ">
-          {[...Array(6)]
+        <div className="best-offers__products grid  app:grid-cols-3 lg:!grid-cols-6 grid-cols-2 gap-2 md:gap-4 justify-center items-center my-3 ">
+          {Array(6)
+            .fill(null)
             .slice(0, getWindowCardsCount())
             .map((_, index: number) => {
               return (
                 <div
                   key={index}
-                  className="best-offers__card bg-textFooterColor rounded-xl mx-auto p-0.5 md:p-1 shadow-heart border-2 border-black lg:border-0"
+                  className="best-offers__card bg-textFooterColor rounded-xl mx-auto p-0.5 md:p-1 shadow-heart border border-bottomNavBorder lg:border-0"
                 >
                   <div className="card-body text-center drop-shadow-2xl ">
                     <h5 className="card-title my-1.5">

@@ -38,7 +38,7 @@ const Arrival: React.FC = () => {
     <section className="new-arrivals py-4">
       <div className="myContainer">
         <div className="new-arrivals__header my-6 grid lg:grid-cols-3 grid-cols-1 items-center">
-          <h2 className="new-arrivals__head font-normal font-orelega text-sm lg:text-3xl text-buttonColor text-center uppercase lg:col-start-2 ">
+          <h2 className="new-arrivals__head font-normal font-orelega text-sm sm:text-xl md:text-3xl text-buttonColor text-center uppercase lg:col-start-2 drop-shadow-xl">
             new arrivals
           </h2>
           <div className="new-arrivals__btn lg:col-start-3 flex justify-end">
@@ -51,7 +51,7 @@ const Arrival: React.FC = () => {
       <div className="new-arrivals__container   relative">
         <div className="new-arrivals__md-screen myContainer hidden lg:block">
           <Swiper
-            className="mySwiper w-full"
+            className="new-arrivals__swiper mySwiper w-full"
             effect={"coverflow"}
             initialSlide={2}
             loop={true}
@@ -109,7 +109,7 @@ const Arrival: React.FC = () => {
             navigation={false}
             spaceBetween={15}
             centeredSlides={true}
-            className="mySwiper"
+            className="new-arrivals__swiper mySwiper"
           >
             {slides.map((item) => {
               return (
