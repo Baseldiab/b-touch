@@ -3,29 +3,7 @@
 import withMT from "@material-tailwind/react/utils/withMT";
 
 const config = {
-  content: [
-    "./index.html",
-    "./src/main.tsx",
-    "./src/App.tsx",
-    "./src/Header/Header.tsx",
-    "./src/Footer/Footer.tsx",
-    "./src/Header/Header-Components/Bottom-nav.tsx",
-    "./src/Header/Header-Components/Search-screen.tsx",
-    "./src/Header/Header-Components/NavList.tsx",
-    "./src/Header/Header-Components/Logo-Menu.tsx",
-    "./src/Home-page/Home.tsx",
-    "./src/Home-component/New-Arrivals.tsx",
-    "./src/Home-component/AdOne.tsx",
-    "./src/Home-component/Categories.tsx",
-    "./src/Home-component/Reviews.tsx",
-    "./src/Home-component/Brands.tsx",
-    "./src/Home-component/Ratings.tsx",
-    "./src/Home-component/BestOffers.tsx",
-    "./src/Home-component/AdFour-section.tsx",
-    "./src/Home-component/Carousel-section/Carousel-section.tsx",
-    "./src/Home-component/Carousel-section/Select-Vehicle.tsx",
-    "./src/Home-component/Carousel-section/Select-Vehicle.tsx",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       screens: {
