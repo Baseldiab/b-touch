@@ -5,12 +5,12 @@ const AdOne: React.FC = () => {
     <section className="ad-one bg-black text-white text-center lg:py-6 py-3">
       <div className="ad__header flex justify-center lg:gap-6 md:gap-4 gap-2">
         <img
-          className="w-5 h-5 md:w-16 md:h-16 lg:w-24 lg:h-24 "
+          className="w-5 h-5 md:w-12 md:h-12 lg:w-16 lg:h-16 "
           src="images/Mercedes Logo.png"
           alt="Mercedes Logo"
         />
         <div className="ad__text">
-          <h2 className="font-orelega lg:text-4xl md:text-2xl text-xs font-normal">
+          <h2 className="font-orelega lg:text-2xl md:text-lg text-xs font-normal">
             Because Cat - like reflexes aren’t fast enough <br />
             The PRE - SAFE brake.
           </h2>

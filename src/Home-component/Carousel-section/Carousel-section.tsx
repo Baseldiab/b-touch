@@ -59,19 +59,19 @@ const Carousel: React.FC = () => {
                 className={`carousel__text absolute text-center carousel__slide-${item.id}`}
               >
                 <h2
-                  className="carousel__top-header capitalize md:mb-3 mb-1 font-roboto text-sm md:text-2xl lg:text-4xl font-bold text-white "
+                  className="carousel__top-header capitalize md:mb-3 mb-1 font-roboto text-sm md:text-2xl lg:text-3xl font-bold text-white "
                   data-swiper-parallax="-300"
                 >
                   {item.h1}
                 </h2>
                 <h2
-                  className="carousel__second-header md:mb-3 mb-1 text-primary text-sm md:text-2xl font-roboto lg:text-4xl font-bold"
+                  className="carousel__second-header md:mb-3 mb-1 text-primary text-sm md:text-2xl font-roboto lg:text-3xl font-bold"
                   data-swiper-parallax="-200"
                 >
                   {item.h2}
                 </h2>
                 <div className="carousel__buy-btn md:mb-3 mb-1">
-                  <button className="carousel__btn rounded-full  capitalize hover:bg-primary bg-buttonColor text-white md:text-xl text-xs md:px-7 font-bold md:py-2 px-2 py-1">
+                  <button className="carousel__btn rounded-full  capitalize hover:bg-primary bg-buttonColor text-white md:text-base text-xs md:px-4 font-bold md:py-2 px-2 py-1">
                     buy now
                   </button>
                 </div>

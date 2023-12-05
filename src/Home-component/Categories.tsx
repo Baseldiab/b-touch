@@ -31,11 +31,11 @@ const Categories: React.FC = () => {
     <section className="categories bg-black lg:py-4 py-2">
       <div className="myContainer">
         <div className="categories__header lg:my-3 my-1 grid  lg:grid-cols-3 grid-cols-1 items-center">
-          <h2 className="categories-head font-normal font-orelega text-sm sm:text-xl lg:text-3xl text-textColor text-center uppercase lg:col-start-2 ">
+          <h2 className="categories-head font-normal font-orelega text-sm sm:text-xl lg:text-2xl text-textColor text-center uppercase lg:col-start-2 ">
             POPULAR CATEGORIES
           </h2>
           <div className="categories__btn lg:col-start-3  flex justify-end">
-            <button className="categories__btn md:rounded-xl rounded-md  hover:bg-primary  bg-buttonColor text-white md:text-xl text-xs md:px-7 font-normal md:font-extrabold md:py-2 px-3 py-1 font-roboto shadow-Btn md:shadow-none ">
+            <button className="categories__btn md:rounded-xl rounded-md  hover:bg-primary  bg-buttonColor text-white md:text-base text-xs md:px-4 font-normal md:font-extrabold md:py-2 px-3 py-1 font-roboto shadow-Btn md:shadow-none ">
               View more
             </button>
           </div>

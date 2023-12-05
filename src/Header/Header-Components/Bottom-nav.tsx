@@ -13,7 +13,7 @@ const BottomNav: React.FC = () => {
       <div className="bottom-nav__tabs myContainer flex justify-between items-center py-1">
         <NavLink
           // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-          className={`bottom-nav__links textFooterColor text-center capitalize text-sm font-orelega font-sm ${({
+          className={`bottom-nav__links text-textFooterColor text-center capitalize text-sm font-orelega font-sm ${({
             isActive,
             isPending,
           }: {
@@ -31,8 +31,8 @@ const BottomNav: React.FC = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
+              className="fill-textFooterColor"
               d="M16.9056 10.1637L9.25649 1.15713C8.93438 0.777051 8.31565 0.777051 7.99353 1.15713L0.344388 10.1637C0.234289 10.293 0.16202 10.4534 0.136369 10.6255C0.110719 10.7975 0.132792 10.9738 0.199904 11.1328C0.335889 11.4579 0.640155 11.6668 0.975868 11.6668H2.67568V17.9714C2.67568 18.2103 2.76522 18.4394 2.92461 18.6083C3.084 18.7772 3.30017 18.8721 3.52558 18.8721H6.0753C6.30071 18.8721 6.51688 18.7772 6.67627 18.6083C6.83566 18.4394 6.9252 18.2103 6.9252 17.9714V14.3688H10.3248V17.9714C10.3248 18.2103 10.4144 18.4394 10.5738 18.6083C10.7331 18.7772 10.9493 18.8721 11.1747 18.8721H13.7244C13.9499 18.8721 14.166 18.7772 14.3254 18.6083C14.4848 18.4394 14.5743 18.2103 14.5743 17.9714V11.6668H16.2742C16.4388 11.6676 16.6 11.6176 16.7382 11.5229C16.8765 11.4282 16.9857 11.2929 17.0527 11.1336C17.1196 10.9742 17.1413 10.7977 17.1152 10.6254C17.0891 10.4532 17.0163 10.2928 16.9056 10.1637Z"
-              fill="#30AFE0"
             />
           </svg>
           Home
@@ -99,9 +99,16 @@ const BottomNav: React.FC = () => {
           </svg>
           Categories
         </Link>
-        <Link
-          className="bottom-nav__link text-center capitalize text-sm font-orelega font-sm text-textFooterColor disabled hover:text-primary"
-          to="#"
+        <NavLink
+          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+          className={`bottom-nav__link text-center capitalize text-sm font-orelega font-sm text-textFooterColor disabled hover:text-primary ${({
+            isActive,
+            isPending,
+          }: {
+            isActive: boolean;
+            isPending: boolean;
+          }) => (isActive ? "active" : isPending ? "pending" : "")}`}
+          to="login"
         >
           <svg
             className="mx-auto"
@@ -117,7 +124,7 @@ const BottomNav: React.FC = () => {
             />
           </svg>
           account
-        </Link>
+        </NavLink>
       </div>
     </footer>
   );

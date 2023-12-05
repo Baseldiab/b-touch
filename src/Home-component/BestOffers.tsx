@@ -19,11 +19,11 @@ const BestOffers: React.FC = () => {
     <section className="best-offers bg-black py-4">
       <div className="myContainer">
         <div className="best-offers__header my-3 grid  grid-cols-1 items-center">
-          <h2 className="best-offers-head font-normal font-orelega text-sm sm:text-xl lg:text-3xl text-textColor text-center uppercase  ">
+          <h2 className="best-offers-head font-normal font-orelega text-sm sm:text-xl lg:text-2xl text-textColor text-center uppercase  ">
             best offers
           </h2>
           <div className="best-offers__btn  flex justify-end">
-            <button className="best-offers__btn md:rounded-xl rounded-md  hover:bg-gray-200  bg-white text-primary md:text-xl text-xs md:px-7 font-normal md:font-extrabold md:py-2 px-3 py-1 font-roboto shadow-Btn md:shadow-none ">
+            <button className="best-offers__btn md:rounded-xl rounded-md  hover:bg-gray-200  bg-white text-primary md:text-base text-xs md:px-4 font-normal md:font-extrabold md:py-2 px-3 py-1 font-roboto shadow-Btn md:shadow-none ">
               View more
             </button>
           </div>
@@ -48,20 +48,20 @@ const BestOffers: React.FC = () => {
                       : "accessories"}
                   </h5>
 
-                  <p className="card-text capitalize text-textDarkColor md:font-bold font-normal md:text-base text-xs my-1.5">
+                  <p className="card-text capitalize text-textDarkColor md:font-bold font-normal md:text-sm text-xs my-1">
                     Steering Wheel Cover
                   </p>
-                  <p className="card-price capitalize text-textDarkColor font-bold md:text-base text-ssm my-1.5">
+                  <p className="card-price capitalize text-textDarkColor font-bold md:text-sm text-ssm my-1.5">
                     <del>EGP 139</del>
                     <span className="text-danger"> -30% EGP 97</span>
                   </p>
-                  <div className="card-footer flex justify-between my-1.5">
+                  <div className="card-footer flex justify-around my-1.5">
                     <button
-                      className="carousel__btn rounded-lg capitalize hover:bg-primary bg-buttonColor text-white md:text-base text-ssm md:px-4 
+                      className="carousel__btn rounded-lg capitalize hover:bg-primary bg-buttonColor text-white md:text-sm text-ssm md:px-4 
                 font-sm md:py-2 app:px-2 px-1 py-1 font-roboto flex items-center"
                     >
                       <FontAwesomeIcon
-                        className="md:text-lg text-ssm mr-1"
+                        className="md:text-base text-ssm mr-1"
                         icon={faCartShopping}
                       />
                       Add To Cart
@@ -72,7 +72,7 @@ const BestOffers: React.FC = () => {
                 font-sm  py-1 px-2 shadow-heart drop-shadow-md "
                     >
                       <FontAwesomeIcon
-                        className="md:text-2xl text-ssm text-primary"
+                        className="md:text-lg text-ssm text-primary"
                         icon={faHeart}
                       />
                     </button>

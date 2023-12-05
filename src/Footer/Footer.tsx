@@ -15,63 +15,63 @@ const Footer: React.FC = () => {
         <div className="myContainer">
           <div className="footer__top-left">
             <div className="footer__community flex justify-start">
-              <h2 className="font-orelega text-textColor font-normal text-3xl">
+              <h2 className="font-orelega text-textColor font-normal text-2xl">
                 Join the Community !
               </h2>
               <div className="footer__social ml-4 flex justify-start">
                 <Link
                   to="#"
-                  className="flex justify-center items-center bg-buttonColor rounded-full w-10 h-10 mx-2 hover:bg-blue-600"
+                  className="flex justify-center items-center bg-buttonColor rounded-full w-8 h-8 mx-2 hover:bg-blue-600"
                 >
                   <FontAwesomeIcon
-                    className="text-textColor text-lg"
+                    className="text-textColor text-base"
                     icon={faFacebookF}
                   />
                 </Link>
 
                 <Link
                   to="#"
-                  className="flex justify-center items-center bg-buttonColor rounded-full w-10 h-10 mx-2 hover:bg-blue-600"
+                  className="flex justify-center items-center bg-buttonColor rounded-full w-8 h-8 mx-2 hover:bg-blue-600"
                 >
                   <FontAwesomeIcon
-                    className="text-textColor text-lg"
+                    className="text-textColor text-base"
                     icon={faSquareInstagram}
                   />
                 </Link>
 
                 <Link
                   to="#"
-                  className="flex justify-center items-center bg-buttonColor rounded-full w-10 h-10 mx-2 hover:bg-blue-600"
+                  className="flex justify-center items-center bg-buttonColor rounded-full w-8 h-8 mx-2 hover:bg-blue-600"
                 >
                   <FontAwesomeIcon
-                    className="text-textColor text-lg"
+                    className="text-textColor text-base"
                     icon={faXTwitter}
                   />
                 </Link>
 
                 <Link
                   to="#"
-                  className="flex justify-center items-center bg-buttonColor rounded-full w-10 h-10 mx-2 hover:bg-blue-600"
+                  className="flex justify-center items-center bg-buttonColor rounded-full w-8 h-8 mx-2 hover:bg-blue-600"
                 >
                   <FontAwesomeIcon
-                    className="text-textColor text-lg"
+                    className="text-textColor text-base"
                     icon={faYoutube}
                   />
                 </Link>
               </div>
             </div>
           </div>
-          <div className="footer__lists   -mt-5 flex justify-around  items-end">
+          <div className="footer__lists -mt-5 flex justify-around  items-end">
             <div className="footer__first3lists basis-3/4 flex justify-around">
               <div className="footer__company">
-                <h1 className="font-orelega capitalize text-3xl text-footHeader">
+                <h1 className="font-orelega capitalize text-xl text-footHeader">
                   company
                 </h1>
                 <ul className="list-none px-4">
                   <li className="my-1">
                     <Link
                       to="#"
-                      className="disabled capitalize font-orelega text-xl text-bottomNavBg hover:text-footHeader"
+                      className="disabled capitalize font-orelega text-base text-bottomNavBg hover:text-footHeader"
                     >
                       about us
                     </Link>
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
                   <li className="my-1">
                     <Link
                       to="#"
-                      className="disabled capitalize font-orelega text-xl text-bottomNavBg hover:text-footHeader"
+                      className="disabled capitalize font-orelega text-base text-bottomNavBg hover:text-footHeader"
                     >
                       contact us
                     </Link>
@@ -88,14 +88,14 @@ const Footer: React.FC = () => {
               </div>
 
               <div className="footer__customer-service ">
-                <h1 className="font-orelega capitalize text-3xl text-footHeader">
+                <h1 className="font-orelega capitalize text-xl text-footHeader">
                   Policy Info
                 </h1>
                 <ul className="list-none px-4">
                   <li className="my-1">
                     <Link
                       to="#"
-                      className="disabled capitalize font-orelega text-xl text-bottomNavBg hover:text-footHeader"
+                      className="disabled capitalize font-orelega text-base text-bottomNavBg hover:text-footHeader"
                     >
                       Terms & Conditions
                     </Link>
@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
                   <li className="my-1">
                     <Link
                       to="#"
-                      className="disabled capitalize font-orelega text-xl text-bottomNavBg hover:text-footHeader"
+                      className="disabled capitalize font-orelega text-base text-bottomNavBg hover:text-footHeader"
                     >
                       Privacy Policy
                     </Link>
@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
                   <li className="my-1">
                     <Link
                       to="#"
-                      className="disabled capitalize font-orelega text-xl text-bottomNavBg hover:text-footHeader"
+                      className="disabled capitalize font-orelega text-base text-bottomNavBg hover:text-footHeader"
                     >
                       Shipping & Billing
                     </Link>
@@ -120,22 +120,22 @@ const Footer: React.FC = () => {
               </div>
 
               <div className="footer__customer-support ">
-                <h1 className="font-orelega capitalize text-3xl text-footHeader">
+                <h1 className="font-orelega capitalize text-xl text-footHeader">
                   Customer Support
                 </h1>
                 <ul className="list-none px-4">
                   <li className="my-1 mb-8">
-                    <p className=" capitalize font-orelega text-xl text-bottomNavBg">
+                    <p className=" capitalize font-orelega text-base text-bottomNavBg">
                       We are available all days from: <br /> OPEN 10AM - 10PM
                     </p>
                   </li>
                   <li className="my-1">
                     <a
                       href="tel:+00201006464041"
-                      className="disabled capitalize font-orelega text-xl text-bottomNavBg hover:text-footHeader"
+                      className="disabled capitalize font-orelega text-base text-bottomNavBg hover:text-footHeader"
                     >
                       <FontAwesomeIcon
-                        className="text-xl text-footHeader mr-2"
+                        className="text-base text-footHeader mr-2"
                         icon={faPhone}
                       />
                       00201006464041
@@ -144,10 +144,10 @@ const Footer: React.FC = () => {
                   <li className="my-1">
                     <a
                       href="mailto:b-touch@outlook.com"
-                      className="disabled capitalize font-orelega text-xl text-bottomNavBg hover:text-footHeader "
+                      className="disabled capitalize font-orelega text-base text-bottomNavBg hover:text-footHeader "
                     >
                       <FontAwesomeIcon
-                        className="text-xl text-footHeader mr-2"
+                        className="text-base text-footHeader mr-2"
                         icon={faEnvelope}
                       />
                       <span className="decoration-solid">
@@ -159,24 +159,24 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <div className="footer__download   basis-1/4">
-              <h1 className="font-orelega capitalize text-3xl text-footHeader">
+              <h1 className="font-orelega capitalize text-xl text-footHeader">
                 Download The App
               </h1>
-              <ul className="list-none px-4">
+              <ul className="list-none px-2 w-4/5">
                 <li className="my-3 apple-store">
                   <Link
                     to="#"
-                    className="disabled capitalize font-orelega text-xl bg-textColor hover:bg-gray-300 rounded-lg  w-9/12  p-2 flex "
+                    className="disabled capitalize font-orelega text-sm bg-textColor hover:bg-gray-300 rounded-lg  w-9/12  p-2 flex "
                   >
                     <FontAwesomeIcon
-                      className="text-4xl text-iconColor "
+                      className="text-3xl text-iconColor "
                       icon={faApple}
                     />
                     <div className="apple-text mx-2">
                       <p className="text-xs font-normal text-iconColor">
                         Download on the
                       </p>
-                      <h5 className="text-xl font-normal text-iconColor">
+                      <h5 className="text-sm font-normal text-iconColor">
                         APP Store
                       </h5>
                     </div>
@@ -185,11 +185,11 @@ const Footer: React.FC = () => {
                 <li className="my-3 play-store">
                   <Link
                     to="#"
-                    className="disabled capitalize font-orelega text-xl bg-textColor hover:bg-gray-300 rounded-lg w-9/12  p-2 flex "
+                    className="disabled capitalize font-orelega  bg-textColor hover:bg-gray-300 rounded-lg w-9/12  p-2 flex "
                   >
                     <svg
-                      width="33"
-                      height="41"
+                      width="25"
+                      height="31"
                       viewBox="0 0 33 41"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -216,7 +216,7 @@ const Footer: React.FC = () => {
                       <p className="text-xs font-normal text-iconColor">
                         Get it on
                       </p>
-                      <h5 className="text-xl font-normal text-iconColor">
+                      <h5 className="text-sm font-normal text-iconColor">
                         Google Play
                       </h5>
                     </div>
@@ -229,14 +229,14 @@ const Footer: React.FC = () => {
                   >
                     <img
                       src="images/appGallery.png"
-                      className="block w-10 h-10"
+                      className="block w-8 h-8"
                       alt="appGallery"
                     />
                     <div className="apple-text mx-2">
                       <p className="text-xs font-normal text-iconColor">
                         Download on the
                       </p>
-                      <h5 className="text-xl font-normal text-iconColor">
+                      <h5 className="text-sm font-normal text-iconColor">
                         AppGallery
                       </h5>
                     </div>
@@ -249,10 +249,10 @@ const Footer: React.FC = () => {
       </div>
       <div className="footer__bottom bg-mainBgColor py-2">
         <div className="myContainer flex justify-between">
-          <p className="font-roboto font-bold text-base italic text-white">
+          <p className="font-roboto font-bold text-sm italic text-white">
             Copyright &copy; 2022 B-Touch
           </p>
-          <p className="font-roboto font-bold text-base italic text-white">
+          <p className="font-roboto font-bold text-sm italic text-white">
             powered by ICON
           </p>
         </div>

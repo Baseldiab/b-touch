@@ -8,7 +8,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Navbar } from "@material-tailwind/react";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import NavList from "./Header-Components/NavList";
 import LogoMenu from "./Header-Components/Logo-Menu";
@@ -75,12 +75,19 @@ const Header: React.FC = () => {
               </form>
 
               <div className="main-nav__left-icons basis-full lg:basis-1/6 hidden	 lg:flex lg:justify-end justify-center my-3 sm:my-2">
-                <Link
-                  className="uppercase text-white disabled hover:text-primary"
-                  to="#"
+                <NavLink
+                  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                  className={`uppercase text-white disabled hover:text-primary ${({
+                    isActive,
+                    isPending,
+                  }: {
+                    isActive: boolean;
+                    isPending: boolean;
+                  }) => (isActive ? "active" : isPending ? "pending" : "")}`}
+                  to="login"
                 >
                   <FontAwesomeIcon className="sm:mr-2 mx-2" icon={faUser} />
-                </Link>
+                </NavLink>
                 <Link
                   className="uppercase text-white disabled hover:text-primary"
                   to="#"

@@ -17,7 +17,7 @@ const Reviews: React.FC = () => {
   return (
     <section className="best-offers  lg:bg-black py-4 ">
       <div className="myContainer">
-        <h2 className="best-offers-head font-normal font-orelega text-sm sm:text-xl lg:text-3xl lg:text-textColor text-buttonColor drop-shadow-xl uppercase text-center md:my-6 my-4">
+        <h2 className="best-offers-head font-normal font-orelega text-sm sm:text-xl lg:text-2xl lg:text-textColor text-buttonColor drop-shadow-xl uppercase text-center md:my-6 my-4">
           What People Say About Us?
         </h2>
 
@@ -34,7 +34,7 @@ const Reviews: React.FC = () => {
                   <div className="card-body text-center drop-shadow-2xl ">
                     <h5 className="card-title my-1.5">
                       <svg
-                        className="md:w-8 w-2.5  md:h-6 h-1.5"
+                        className="md:w-5 w-2.5  md:h-3 h-1.5"
                         viewBox="0 0 33 25"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -46,24 +46,24 @@ const Reviews: React.FC = () => {
                       </svg>
                     </h5>
 
-                    <p className="card-text capitalize text-textDarkColor md:font-extrabold font-normal md:text-base text-ssm my-1.5">
+                    <p className="card-text capitalize text-textDarkColor md:font-extrabold font-normal md:text-sm px-2 text-ssm my-1.5">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua.
                     </p>
                   </div>
 
-                  <hr className="bg-textResetBtn lg:h-1 h-1 rounded-full drop-shadow-lg lg:my-4 my-2 mx-0.5" />
+                  <hr className="bg-textResetBtn  h-1 rounded-full drop-shadow-lg lg:my-4 my-2 mx-0.5" />
 
-                  <div className="card-footer flex gap-2  my-1.5 items-center">
-                    <div className="card-user bg-userBg md:w-12 w-6 md:h-12 h-6 rounded-full flex justify-center items-center">
+                  <div className="card-footer flex gap-2  my-1.5 items-start">
+                    <div className="card-user bg-userBg md:w-8 w-4 md:h-8 h-4 rounded-full flex justify-center items-center p-4">
                       <FontAwesomeIcon
-                        className="md:text-3xl text-base text-white"
+                        className="md:text-lg text-base text-white"
                         icon={faUser}
                       />
                     </div>
                     <div className="card-name">
-                      <h6 className="text-buttonColor text-start md:text-base text-xs">
+                      <h6 className="text-buttonColor text-start md:text-sm text-xs">
                         Basel
                       </h6>
                       <Rating rating={4.5} />

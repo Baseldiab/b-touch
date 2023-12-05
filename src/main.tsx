@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { ThemeProvider } from "@material-tailwind/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App.tsx";
 import Home from "./Home-page/Home";
+import { ContextProvider } from "./Auth/Auth.js";
+import Login from "./loginPage/Login.tsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+      {
+        path: "login",
+        element: <Login />,
+      },
     ],
   },
 ]);
@@ -24,8 +29,8 @@ const root = ReactDOM.createRoot(document.getElementById("root")!);
 
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
+    <ContextProvider>
       <RouterProvider router={router} />
-    </ThemeProvider>
+    </ContextProvider>
   </React.StrictMode>
 );

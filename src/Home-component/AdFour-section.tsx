@@ -10,15 +10,15 @@ const AdFour: React.FC = () => {
         <div
           className={`ad-4__text absolute text-center sm:left-16 left-3 top-3.5 sm:top-1/4`}
         >
-          <h2 className="ad-4__top-header capitalize lg:mb-10 mb-1 text-sm md:text-2xl lg:text-4xl font-bold text-add4Bg font-playPal">
+          <h2 className="ad-4__top-header capitalize lg:mb-4 mb-1 text-sm md:text-2xl lg:text-3xl font-bold text-add4Bg font-playPal">
             Whatever type of your car
           </h2>
-          <h2 className="ad-4__second-header lg:mb-10 mb-1 text-black text-sm md:text-2xl font-playPal lg:text-4xl font-bold sm:w-full mx-auto w-3/4">
+          <h2 className="ad-4__second-header lg:mb-4 mb-1 text-black text-sm md:text-2xl font-playPal lg:text-3xl font-bold sm:w-full mx-auto w-3/4">
             You will find everything you need in <br />
-            <span className="text-add4Bg lg:mt-4 mt-1 block">B-Touch</span>
+            <span className="text-add4Bg lg:mt-2 mt-1 block">B-Touch</span>
           </h2>
           <div className="ad-4__buy-btn lg:mb-3 mb-1">
-            <button className="ad-4__btn rounded-full  capitalize hover:bg-primary bg-buttonColor text-white md:text-xl text-xs md:px-7 font-bold md:py-2 px-2 py-1">
+            <button className="ad-4__btn rounded-full  capitalize hover:bg-primary bg-buttonColor text-white md:text-base text-xs md:px-4 font-bold md:py-2 px-2 py-1">
               buy now
             </button>
           </div>
