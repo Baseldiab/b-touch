@@ -7,6 +7,7 @@ import App from "./App.tsx";
 import Home from "./Home-page/Home";
 import { ContextProvider } from "./Auth/Auth.js";
 import Login from "./loginPage/Login.tsx";
+import Register from "./RegisterPage/Register.tsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
       },
     ],
   },

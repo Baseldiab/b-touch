@@ -31,6 +31,7 @@ const config = {
         mainBgColor: "#22292E",
         carouselBgColor: "#464B4EA1",
         bottomNavBg: "#D9D9D9",
+        headRegister: "#0B5C6F",
       },
       fontFamily: {
         orelega: ["Orelega One", "serif"],
