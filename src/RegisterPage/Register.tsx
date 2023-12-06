@@ -1,22 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import Alert from "@mui/material/Alert";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+
 import axios from "axios";
 import { FormEvent, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/Auth";
 
-interface Error {
-  success: boolean;
-  message: string;
-  data: {
-    fname: [string];
-    lname: [string];
-    email: [string];
-    password: [string];
-    phone_1: [string];
-  };
-}
+type ErrorData = Record<string, string[]>;
+// interface Error {
+//   success: boolean;
+//   message: string;
+//   data: {
+//     fname: [string];
+//     lname: [string];
+//     email: [string];
+//     password: [string];
+//     phone_1: [string];
+//   };
+// }
 
 export default function Register() {
   const [errorMsg, setErrorMsg] = useState("");
@@ -28,6 +31,9 @@ export default function Register() {
   const [phone1, setPhone1] = useState("");
   const [phone2, setPhone2] = useState("");
   const [email, setEmail] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConPassword, setShowConPassword] = useState(false);
 
   const navigate = useNavigate();
   const auth = useAuth();
@@ -68,11 +74,17 @@ export default function Register() {
         console.log(data);
         navigateLogin();
       })
-      .catch((error: Error) => {
+      .catch((error) => {
         console.error("Error retrieving product data:", error);
-        setErrorMsg(
-          `"first name ${error.data?.fname[0]} ,last name ${error.data?.lname[0]} ,password ${error.data?.password[0]} ,email ${error.data?.email[0]} and phone 1 ${error.data?.phone_1[0]}"`
-        );
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        const errorData: ErrorData = error.response.data.data;
+        console.log(errorData);
+        for (const key in errorData) {
+          if (Array.isArray(errorData[key]) && errorData[key].length > 0) {
+            const errorMessage = `${errorData[key][0]} `;
+            setErrorMsg(errorMessage);
+          }
+        }
       });
   }
 
@@ -90,15 +102,15 @@ export default function Register() {
 
         <form className="md:px-8 px-5 md:mt-8 mt-5" onSubmit={handleSubmit}>
           <div className="first-line my-2 grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
-            <div className="register__fname flex app:flex-row flex-col app:justify-between justify-start items-start   lg:mb-0 mb-2">
+            <div className="register__fname flex sm:flex-row flex-col sm:justify-between justify-start lg:mb-0 mb-2">
               <label
                 htmlFor="fname"
-                className="app:w-40 font-orelega md:text-lg text-sm capitalize"
+                className="sm:w-40 font-orelega md:text-lg text-sm capitalize"
               >
                 first name
               </label>
               <input
-                className="grow app:ms-0 ms-1
+                className="grow sm:ms-0 ms-1
                   register__inputFName  my-0.5  border border-black rounded-lg p-1 px-2"
                 type="text"
                 name="fName"
@@ -106,15 +118,15 @@ export default function Register() {
                 required
               />
             </div>
-            <div className="register__lname flex app:flex-row flex-col app:justify-between justify-start     items-start">
+            <div className="register__lname flex sm:flex-row flex-col sm:justify-between justify-start">
               <label
                 htmlFor="lname"
-                className="app:w-40 font-orelega md:text-lg text-sm capitalize"
+                className="sm:w-40 font-orelega md:text-lg text-sm capitalize"
               >
                 last name
               </label>
               <input
-                className="app:ms-0 ms-1 grow register__inputlName  my-0.5  border border-black rounded-lg px-2 p-1 "
+                className="sm:ms-0 ms-1 grow register__inputlName  my-0.5  border border-black rounded-lg px-2 p-1 "
                 id="lname"
                 type="text"
                 name="lName"
@@ -123,15 +135,15 @@ export default function Register() {
               />
             </div>
           </div>
-          <div className="register__username my-2 flex app:flex-row flex-col app:justify-center justify-between items-start">
+          <div className="register__username my-2 flex sm:flex-row flex-col sm:justify-center justify-between ">
             <label
               htmlFor="username"
-              className="app:w-40 font-orelega md:text-lg text-sm capitalize"
+              className="sm:w-40 font-orelega md:text-lg text-sm capitalize"
             >
               user name
             </label>
             <input
-              className="app:ms-0 ms-1 grow px-2 register__inputUserame  my-0.5 border border-black rounded-lg p-1 "
+              className="sm:ms-0 ms-1 grow px-2 register__inputUserame  my-0.5 border border-black rounded-lg p-1 "
               id="username"
               type="text"
               name="userame"
@@ -140,51 +152,77 @@ export default function Register() {
             />
           </div>
           <div className="first-line my-2 grid lg:grid-cols-2 grid-cols-1 lg:gap-4">
-            <div className="register__password flex app:flex-row flex-col app:justify-between justify-start    lg:mb-0 mb-2 items-start">
+            <div className="register__password flex sm:flex-row flex-col sm:justify-between justify-start lg:mb-0 mb-2">
               <label
                 htmlFor="Password"
-                className="app:w-40 font-orelega md:text-lg text-sm capitalize"
+                className="sm:w-40 font-orelega md:text-lg text-sm capitalize"
               >
                 Password
               </label>
-              <input
-                className="app:ms-0 ms-1 grow register__inputPassword  my-0.5  border border-black rounded-lg px-2 p-1 "
-                type="password"
-                id="Password"
-                minLength={8}
-                name="password"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+              <div className="sm:ms-0 ms-1 grow flex justify-between items-center border border-black rounded-lg sm:px-2 px-0.5 sm:p-1 p-0.5">
+                <input
+                  className="register__inputPassword grow focus:border-0 focus-within:border-0 focus-visible:outline-0  my-0.5 max-w-[85%]"
+                  type={showPassword ? "text" : "password"}
+                  id="Password"
+                  minLength={8}
+                  name="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                {showPassword ? (
+                  <VisibilityOff
+                    className="cursor-pointer"
+                    onClick={() => setShowPassword(false)}
+                  />
+                ) : (
+                  <Visibility
+                    className="cursor-pointer"
+                    onClick={() => setShowPassword(true)}
+                  />
+                )}
+              </div>
             </div>
-            <div className="register__conPassword flex app:flex-row flex-col app:justify-between justify-start  items-start ">
+            <div className="register__conPassword flex sm:flex-row flex-col sm:justify-between justify-start">
               <label
                 htmlFor="ConPassword"
-                className="app:w-40 font-orelega md:text-lg text-sm capitalize"
+                className="sm:w-40 font-orelega md:text-lg text-sm capitalize"
               >
                 confirm Password
               </label>
-              <input
-                className="app:ms-0 ms-1 grow register__inputConPassword  my-0.5  border border-black rounded-lg px-2 p-1 "
-                type="password"
-                id="ConPassword"
-                name="conPassword"
-                minLength={8}
-                onChange={(e) => setConPassword(e.target.value)}
-                required
-              />
+              <div className="sm:ms-0 ms-1 grow flex justify-between items-center border border-black rounded-lg px-2 p-1">
+                <input
+                  className="register__inputConPassword grow focus:border-0 focus-within:border-0 focus-visible:outline-0  my-0.5 max-w-[85%]"
+                  type={showConPassword ? "text" : "password"}
+                  id="ConPassword"
+                  name="conPassword"
+                  minLength={8}
+                  onChange={(e) => setConPassword(e.target.value)}
+                  required
+                />
+                {showConPassword ? (
+                  <VisibilityOff
+                    className="cursor-pointer "
+                    onClick={() => setShowConPassword(false)}
+                  />
+                ) : (
+                  <Visibility
+                    className="cursor-pointer"
+                    onClick={() => setShowConPassword(true)}
+                  />
+                )}
+              </div>
             </div>
           </div>
           <div className="first-line my-2 grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
-            <div className="register__phone1 flex app:flex-row flex-col app:justify-between justify-start  lg:mb-0 mb-2 items-start">
+            <div className="register__phone1 flex sm:flex-row flex-col sm:justify-between justify-start  lg:mb-0 mb-2">
               <label
                 htmlFor="Phone1"
-                className="app:w-40 font-orelega md:text-lg text-sm capitalize"
+                className="sm:w-40 font-orelega md:text-lg text-sm capitalize"
               >
                 phone 1
               </label>
               <input
-                className="app:ms-0 ms-1 grow register__inputConPassword  my-0.5  border border-black rounded-lg px-2 p-1 "
+                className="sm:ms-0 ms-1 grow register__inputConPassword  my-0.5  border border-black rounded-lg px-2 p-1 "
                 type="tel"
                 id="Phone1"
                 name="phone"
@@ -193,15 +231,15 @@ export default function Register() {
                 required
               />
             </div>
-            <div className="register__phone2 flex app:flex-row flex-col app:justify-between justify-start   items-start">
+            <div className="register__phone2 flex sm:flex-row flex-col sm:justify-between justify-start">
               <label
                 htmlFor="Phone2"
-                className="app:w-40 font-orelega md:text-lg text-sm capitalize"
+                className="sm:w-40 font-orelega md:text-lg text-sm capitalize"
               >
                 phone 2
               </label>
               <input
-                className="app:ms-0 ms-1 grow register__inputConPassword  my-0.5  border border-black rounded-lg px-2 p-1 "
+                className="sm:ms-0 ms-1 grow register__inputConPassword  my-0.5  border border-black rounded-lg px-2 p-1 "
                 type="tel"
                 id="Phone2"
                 name="phone"
@@ -211,15 +249,15 @@ export default function Register() {
             </div>
           </div>
 
-          <div className="register__email my-2 flex app:flex-row flex-col app:justify-between justify-start items-start">
+          <div className="register__email my-2 flex sm:flex-row flex-col sm:justify-between justify-start">
             <label
               htmlFor="email"
-              className="app:w-40 font-orelega md:text-lg text-sm"
+              className="sm:w-40 font-orelega md:text-lg text-sm"
             >
               Email Address
             </label>
             <input
-              className="app:ms-0 ms-1 grow register__inputEmail  my-0.5  border border-black rounded-lg px-2 p-1 "
+              className="sm:ms-0 ms-1 grow register__inputEmail  my-0.5  border border-black rounded-lg px-2 p-1 "
               id="email"
               type="email"
               name="email"

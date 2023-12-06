@@ -52,7 +52,7 @@ export default function Login() {
 
   return (
     <section className="login-section myContainer py-6 lg:mb-0 ">
-      <div className="lg:w-2/5 mx-auto lg:p-6 rounded-lg lg:border-2 lg:border-black">
+      <div className="lg:w-2/5 md:w-3/5 mx-auto lg:p-6 rounded-lg lg:border-2 lg:border-black">
         <h1 className="login__header font-orelega md:text-xl text-base text-start">
           Login
         </h1>
