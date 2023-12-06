@@ -8,7 +8,7 @@ const config = {
     extend: {
       screens: {
         mobile: "250px",
-        app: "430px",
+        app: "420px",
         lg: "1178px",
         xl: "1300px",
       },
@@ -31,7 +31,8 @@ const config = {
         mainBgColor: "#22292E",
         carouselBgColor: "#464B4EA1",
         bottomNavBg: "#D9D9D9",
-        headRegister: "#0B5C6F",
+        bgHeadRegister: "#0B5C6F",
+        textHeadRegister: "#46C1F0",
       },
       fontFamily: {
         orelega: ["Orelega One", "serif"],

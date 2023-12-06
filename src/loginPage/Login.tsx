@@ -51,18 +51,18 @@ export default function Login() {
   }
 
   return (
-    <section className="login-section myContainer my-12 ">
-      <div className="w-2/5 mx-auto p-6 rounded-lg border-2 border-black">
-        <h1 className="login__header  font-orelega text-xl text-black text-start">
+    <section className="login-section myContainer py-6 lg:mb-0 ">
+      <div className="lg:w-2/5 mx-auto lg:p-6 rounded-lg lg:border-2 lg:border-black">
+        <h1 className="login__header font-orelega md:text-xl text-base text-start">
           Login
         </h1>
         <form className="px-8" onSubmit={handleSubmit}>
-          <div className="login__email flex flex-col my-1">
-            <label htmlFor="email" className="font-orelega text-lg">
+          <div className="login__email flex flex-col my-2">
+            <label htmlFor="email" className="font-orelega md:text-lg text-sm ">
               Email Address
             </label>
             <input
-              className="login__inputEmail  my-0.5 ms-3 border border-black rounded-lg p-1 "
+              className="login__inputEmail  my-0.5 ms-3 border border-black  text-black  rounded-lg p-1 "
               id="email"
               type="email"
               name="email"
@@ -70,8 +70,11 @@ export default function Login() {
               required
             />
           </div>
-          <div className="login__password flex flex-col my-1">
-            <label htmlFor="Password" className="font-orelega text-lg">
+          <div className="login__password flex flex-col my-2">
+            <label
+              htmlFor="Password"
+              className="text-black font-orelega md:text-lg text-sm"
+            >
               Password
             </label>
             <input
@@ -91,7 +94,7 @@ export default function Login() {
           )}
           <div className="flex justify-center">
             <button
-              className="carousel__btn rounded-full  capitalize hover:bg-primary bg-buttonColor text-white md:text-base text-xs md:px-4 font-bold md:py-2 px-2 py-1 mt-6 mb-5"
+              className="carousel__btn rounded-full  capitalize hover:bg-primary bg-buttonColor text-white md:text-base text-xs md:px-5 font-orelega  px-3 py-1 mt-6 mb-5"
               type="submit"
             >
               Login
@@ -106,12 +109,9 @@ export default function Login() {
             Or
           </p>
         </div> */}
-        <div className="text-center">
+        <div className="font-orelega text-center md:text-lg text-sm">
           <span>Don&apos;t have an account ? </span>
-          <Link
-            to="/register"
-            className="text-primary capitalize font-semibold"
-          >
+          <Link to="/register" className="text-primary capitalize">
             Register
           </Link>
         </div>
