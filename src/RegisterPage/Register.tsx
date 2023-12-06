@@ -9,17 +9,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/Auth";
 
 type ErrorData = Record<string, string[]>;
-// interface Error {
-//   success: boolean;
-//   message: string;
-//   data: {
-//     fname: [string];
-//     lname: [string];
-//     email: [string];
-//     password: [string];
-//     phone_1: [string];
-//   };
-// }
 
 export default function Register() {
   const [errorMsg, setErrorMsg] = useState("");
@@ -43,7 +32,7 @@ export default function Register() {
   const redirectPath = location.state?.path || "/login";
 
   const navigateLogin = () => {
-    if (auth.isAdmin) {
+    if (auth.isLogged) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       navigate(redirectPath, { replace: true });
     } else navigate(redirectPath, { replace: true });

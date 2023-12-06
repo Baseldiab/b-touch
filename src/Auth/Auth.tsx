@@ -2,14 +2,15 @@ import { useContext } from "react";
 import { useState } from "react";
 import { createContext, ReactNode } from "react";
 
-type User = string;
+type Token = string;
 
 interface AuthContextType {
-  login: (user: User) => void;
+  login: (token: Token, username: string) => void;
   logout: () => void;
-  checkAdmin: (name: string) => void;
-  user: User;
-  isAdmin: boolean;
+  isLogedIn: (token: boolean) => void;
+  isLogged: boolean;
+  token: string | null;
+  username: string | null;
 }
 
 export const AuthContext = createContext<AuthContextType>({
@@ -18,9 +19,10 @@ export const AuthContext = createContext<AuthContextType>({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   logout: () => {},
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  checkAdmin: () => {},
-  user: "",
-  isAdmin: false,
+  isLogedIn: () => {},
+  isLogged: false,
+  token: "",
+  username: "",
 });
 
 interface ContextProviderProps {
@@ -28,45 +30,52 @@ interface ContextProviderProps {
 }
 
 export const ContextProvider = ({ children }: ContextProviderProps) => {
-  const userNameInitial = () => {
-    const user = localStorage.getItem("user");
+  const tokenInitial = () => {
+    const token = localStorage.getItem("token");
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return user ? JSON.parse(user) : null;
+    return token;
   };
-  const adminInitial = () => {
-    const admin = localStorage.getItem("admin");
+  const nameInitial = () => {
+    const username = localStorage.getItem("username");
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return admin ? JSON.parse(admin) : false;
+    return username;
+  };
+  const checkLogin = () => {
+    const isLogged = localStorage.getItem("isLogged");
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return isLogged ? JSON.parse(isLogged) : false;
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-  const [isAdmin, setAdmin] = useState<boolean>(adminInitial());
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-  const [user, setUser] = useState<User>(userNameInitial());
+  const [token, setToken] = useState<string | null>(tokenInitial);
+  const [username, setUsername] = useState<string | null>(nameInitial);
+  const [isLogged, setIsLogged] = useState<boolean>(checkLogin);
 
-  const checkAdmin = (name: string) => {
-    if (name === "johnd") {
-      setAdmin(true);
-      localStorage.setItem("admin", JSON.stringify(true));
+  const isLogedIn = (checkLogin: boolean) => {
+    if (checkLogin) {
+      setIsLogged(checkLogin);
+      localStorage.setItem("isLogged", JSON.stringify(checkLogin));
     } else {
-      setAdmin(false);
-      localStorage.setItem("admin", JSON.stringify(false));
+      setIsLogged(checkLogin);
+      localStorage.setItem("isLogged", JSON.stringify(checkLogin));
     }
   };
-  const login = (user: User) => {
-    setUser(user);
-    localStorage.setItem("user", user);
+  const login = (token: Token, username: string) => {
+    setUsername(username);
+    localStorage.setItem("username", username);
+    localStorage.setItem("token", token);
   };
 
   const logout = () => {
-    setUser("");
-    setAdmin(false);
-    localStorage.removeItem("user");
-    localStorage.removeItem("admin");
+    setToken("");
+    localStorage.removeItem("token");
+    localStorage.removeItem("isLogged");
   };
 
   return (
-    <AuthContext.Provider value={{ login, logout, checkAdmin, user, isAdmin }}>
+    <AuthContext.Provider
+      value={{ login, logout, isLogedIn, isLogged, token, username }}
+    >
       {children}
     </AuthContext.Provider>
   );

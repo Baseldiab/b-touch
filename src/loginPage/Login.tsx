@@ -1,12 +1,28 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import Alert from "@mui/material/Alert";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 import { FormEvent, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/Auth";
+import Swal from "sweetalert2";
+
+interface ApiResponse {
+  success: boolean;
+  data: {
+    expiration: number;
+    expiration_at: string;
+    fname: string;
+    lname: string;
+    name: string | null;
+    token: string;
+    type: string;
+  };
+  message: string;
+}
 
 interface Error {
   success: boolean;
@@ -27,10 +43,28 @@ export default function Login() {
   const redirectPath = location.state?.path || "/";
 
   const navigateLogin = () => {
-    if (auth.isAdmin) {
+    if (auth.isLogged) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       navigate(redirectPath, { replace: true });
     } else navigate(redirectPath, { replace: true });
+  };
+  const successLogin: () => Promise<void> = async () => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    await Toast.fire({
+      icon: "success",
+      title: "Signed in successfully",
+    });
   };
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -40,11 +74,15 @@ export default function Login() {
         email: email,
         password: password,
       })
-      .then((data) => {
-        console.log(data);
+      .then((data: AxiosResponse<ApiResponse>) => {
+        const Token: string = data.data.data.token;
+        const fname: string = data.data.data.fname;
+        auth.login(Token, fname);
+        auth.isLogedIn(data.data.success);
         console.log(email);
         setErrorMsg("");
         navigateLogin();
+        successLogin();
       })
       .catch((error: Error) => {
         console.error("Error retrieving product data:", error);
