@@ -2,6 +2,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import Alert from "@mui/material/Alert";
 import axios from "axios";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+
 import { FormEvent, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/Auth";
@@ -15,6 +17,8 @@ export default function Login() {
   const [errorMsg, setErrorMsg] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
   const auth = useAuth();
   const location = useLocation();
@@ -77,14 +81,27 @@ export default function Login() {
             >
               Password
             </label>
-            <input
-              className="login__inputPassword  my-0.5 ms-3 border border-black rounded-lg p-1 "
-              type="password"
-              id="Password"
-              name="password"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="ms-3 border border-black rounded-lg p-1 flex justify-between items-center border border-black rounded-lg sm:px-2 px-0.5 sm:p-1 p-0.5">
+              <input
+                className="login__inputPassword  my-0.5  focus:border-0 focus-within:border-0 focus-visible:outline-0  my-0.5 max-w-[85%] grow"
+                type={showPassword ? "text" : "password"}
+                id="Password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              {showPassword ? (
+                <VisibilityOff
+                  className="cursor-pointer"
+                  onClick={() => setShowPassword(false)}
+                />
+              ) : (
+                <Visibility
+                  className="cursor-pointer"
+                  onClick={() => setShowPassword(true)}
+                />
+              )}
+            </div>
           </div>
 
           {errorMsg && (
