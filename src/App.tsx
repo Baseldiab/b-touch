@@ -5,12 +5,14 @@ import Footer from "./Footer/Footer";
 
 const App: React.FC = () => {
   return (
-    <>
-      <Header />
-      <Outlet />
+    <div className="min-h-screen m-0 flex flex-col">
+      <main className="flex-1">
+        <Header />
+        <Outlet />
+      </main>
       <BottomNav />
       <Footer />
-    </>
+    </div>
   );
 };
 

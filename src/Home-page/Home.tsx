@@ -12,7 +12,7 @@ const Home = () => {
   const windowWidth = window.innerWidth;
 
   return (
-    <main className="lg:mb-0 mb-14">
+    <div className="lg:mb-0 mb-14">
       <Carousel />
       <Arrival />
       <AdOne />
@@ -32,7 +32,7 @@ const Home = () => {
         </>
       )}
       <Brands />
-    </main>
+    </div>
   );
 };
 export default Home;

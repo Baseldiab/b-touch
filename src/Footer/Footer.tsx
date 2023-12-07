@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="lg:block hidden ">
+    <footer className="lg:block hidden mt-auto">
       <div className="footer__top bg-black py-6">
         <div className="myContainer">
           <div className="footer__top-left">
