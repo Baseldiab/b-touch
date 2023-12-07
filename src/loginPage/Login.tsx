@@ -120,7 +120,7 @@ export default function Login() {
             >
               Password
             </label>
-            <div className="ms-3 border border-black rounded-lg p-1 flex justify-between items-center sm:px-2 px-0.5 sm:p-1">
+            <div className="ms-3 border border-black rounded-lg flex justify-between items-center sm:px-2 px-1 p-1">
               <input
                 className="login__inputPassword focus:border-0 focus-within:border-0 focus-visible:outline-0  my-0.5 max-w-[85%] grow"
                 type={showPassword ? "text" : "password"}

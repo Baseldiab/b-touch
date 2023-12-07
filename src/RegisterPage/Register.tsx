@@ -170,7 +170,7 @@ export default function Register() {
               >
                 Password
               </label>
-              <div className="sm:ms-0 ms-1 grow flex justify-between items-center border border-black rounded-lg sm:px-2 px-0.5 sm:p-1 p-0.5">
+              <div className="sm:ms-0 ms-1 grow flex justify-between items-center border border-black rounded-lg sm:px-2 px-1 p-1">
                 <input
                   className="register__inputPassword grow focus:border-0 focus-within:border-0 focus-visible:outline-0  my-0.5 max-w-[85%]"
                   type={showPassword ? "text" : "password"}
@@ -200,7 +200,7 @@ export default function Register() {
               >
                 confirm Password
               </label>
-              <div className="sm:ms-0 ms-1 grow flex justify-between items-center border border-black rounded-lg px-2 p-1">
+              <div className="sm:ms-0 ms-1 grow flex justify-between items-center border border-black rounded-lg sm:px-2 px-1 p-1">
                 <input
                   className="register__inputConPassword grow focus:border-0 focus-within:border-0 focus-visible:outline-0  my-0.5 max-w-[85%]"
                   type={showConPassword ? "text" : "password"}
