@@ -9,6 +9,7 @@ import { FormEvent, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/Auth";
 import Swal from "sweetalert2";
+import { ZodError, z } from "zod";
 
 interface ApiResponse {
   success: boolean;
@@ -28,6 +29,16 @@ interface Error {
   success: boolean;
   message: string;
 }
+
+const passwordMinLength = 6;
+const passwordRegex = new RegExp(`^.{${passwordMinLength},}$`);
+
+const loginSchema = z.object({
+  email: z.string().email(),
+  password: z.string().refine((value) => passwordRegex.test(value), {
+    message: `Password must be at least ${passwordMinLength} characters long`,
+  }),
+});
 
 export default function Login() {
   const [errorMsg, setErrorMsg] = useState("");
@@ -70,27 +81,40 @@ export default function Login() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    axios
-      .post("https://test-api.b-touch.store/public/w/screens/customers/login", {
-        email: email,
-        password: password,
-      })
-      .then((data: AxiosResponse<ApiResponse>) => {
-        const Token: string = data.data.data.token;
-        const fname: string = data.data.data.fname;
-        auth.login(Token, fname);
-        auth.isLogedIn(data.data.success);
-        console.log(email);
-        setErrorMsg("");
-        navigateLogin();
-        successLogin();
-      })
-      .catch((error: Error) => {
-        console.error("Error retrieving product data:", error);
-        // setErrorMsg(error.message);
-        console.log(error);
-        setErrorMsg("username or password is incorrect");
-      });
+
+    try {
+      const validatedData = loginSchema.parse({ email, password });
+
+      axios
+        .post(
+          "https://test-api.b-touch.store/public/w/screens/customers/login",
+          validatedData
+        )
+        .then((data: AxiosResponse<ApiResponse>) => {
+          const Token: string = data.data.data.token;
+          const fname: string = data.data.data.fname;
+          auth.login(Token, fname);
+          auth.isLogedIn(data.data.success);
+          console.log(email);
+          setErrorMsg("");
+          navigateLogin();
+          successLogin();
+        })
+        .catch((error: Error) => {
+          console.error("Error retrieving product data:", error);
+          console.log(error);
+          setErrorMsg("username or password is incorrect");
+        });
+    } catch (error) {
+      console.error("Validation error:", error);
+
+      if (error instanceof ZodError) {
+        const errorMessage = error.errors.map((err) => err.message).join(", ");
+        setErrorMsg(errorMessage);
+      } else {
+        setErrorMsg("Invalid form data");
+      }
+    }
   }
 
   return (

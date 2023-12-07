@@ -31,7 +31,8 @@
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.10.1",
     "swiper": "^11.0.4",
-    "vite-plugin-eslint": "^1.8.1"
+    "vite-plugin-eslint": "^1.8.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

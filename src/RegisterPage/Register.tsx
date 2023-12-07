@@ -8,9 +8,32 @@ import axios from "axios";
 import { FormEvent, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/Auth";
+import { z } from "zod";
 import Swal from "sweetalert2";
 
 type ErrorData = Record<string, string[]>;
+
+const passwordMinLength = 6;
+
+const phoneRegex = /^\d{10}$/;
+const passwordRegex = new RegExp(`^.{${passwordMinLength},}$`);
+
+const registrationSchema = z.object({
+  fname: z.string(),
+  lname: z.string(),
+  username: z.string(),
+  password: z.string().refine((value) => passwordRegex.test(value), {
+    message: `Password must be at least ${passwordMinLength} characters long`,
+  }),
+  confirm_password: z.string(),
+  phone_1: z.string().refine((value) => phoneRegex.test(value), {
+    message: "Invalid phone number 1. Phone number 1 must be 10 digits.",
+  }),
+  phone_2: z.string().refine((value) => phoneRegex.test(value), {
+    message: "Invalid phone number 2. Phone number 2 must be 10 digits.",
+  }),
+  email: z.string().email(),
+});
 
 export default function Register() {
   const [errorMsg, setErrorMsg] = useState("");
@@ -61,42 +84,56 @@ export default function Register() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     if (password !== conPassword) {
       setErrorMsg("Password and confirm password do not match");
       return;
     } else setErrorMsg("");
 
-    axios
-      .post(
-        "https://test-api.b-touch.store/public/w/screens/customers/register",
-        {
-          fname: fname,
-          lname: lname,
-          username: username,
-          password: password,
-          confirm_password: conPassword,
-          phone_1: phone1,
-          phone_2: phone2,
-          email: email,
-        }
-      )
-      .then((data) => {
-        console.log(data);
-        navigateLogin();
-        successRegister();
-      })
-      .catch((error) => {
-        console.error("Error retrieving product data:", error);
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        const errorData: ErrorData = error.response.data.data;
-        console.log(errorData);
-        for (const key in errorData) {
-          if (Array.isArray(errorData[key]) && errorData[key].length > 0) {
-            const errorMessage = `${errorData[key][0]} `;
-            setErrorMsg(errorMessage);
-          }
-        }
+    try {
+      const formData = registrationSchema.parse({
+        fname,
+        lname,
+        username,
+        password,
+        confirm_password: conPassword,
+        phone_1: phone1,
+        phone_2: phone2,
+        email,
       });
+
+      axios
+        .post(
+          "https://test-api.b-touch.store/public/w/screens/customers/register",
+          formData
+        )
+        .then((data) => {
+          console.log(data);
+          navigateLogin();
+          successRegister();
+        })
+        .catch((error) => {
+          console.error("Error retrieving product data:", error);
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          const errorData: ErrorData = error.response.data.data;
+          console.log(errorData);
+          for (const key in errorData) {
+            if (Array.isArray(errorData[key]) && errorData[key].length > 0) {
+              const errorMessage = `${errorData[key][0]} `;
+              setErrorMsg(errorMessage);
+            }
+          }
+        });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const errorMessage = error.issues
+          .map((issue) => issue.message)
+          .join(", ");
+        setErrorMsg(errorMessage);
+      } else {
+        setErrorMsg("Unexpected error occurred");
+      }
+    }
   }
 
   return (
@@ -175,7 +212,7 @@ export default function Register() {
                   className="register__inputPassword grow focus:border-0 focus-within:border-0 focus-visible:outline-0  my-0.5 max-w-[85%]"
                   type={showPassword ? "text" : "password"}
                   id="Password"
-                  minLength={8}
+                  minLength={6}
                   name="password"
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -206,7 +243,7 @@ export default function Register() {
                   type={showConPassword ? "text" : "password"}
                   id="ConPassword"
                   name="conPassword"
-                  minLength={8}
+                  minLength={6}
                   onChange={(e) => setConPassword(e.target.value)}
                   required
                 />
