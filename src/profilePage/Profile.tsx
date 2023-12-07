@@ -5,6 +5,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { useAuth } from "../Auth/Auth";
 import Alert from "@mui/material/Alert";
 import { useLocation, useNavigate } from "react-router-dom";
+import loadImg from "../../public/images/loading.gif";
 
 interface UserData {
   success: boolean;
@@ -207,7 +208,9 @@ export default function Profile() {
             </div>
           </form>
         ) : (
-          <div className="md:px-8 px-5 my-2">loading...</div>
+          <div className="flex justify-center items-center my-6 mx-auto">
+            <img className="w-16 h-16" src={loadImg} alt="loadin..." />
+          </div>
         )}
       </div>
     </section>
