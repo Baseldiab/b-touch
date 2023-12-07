@@ -48,12 +48,13 @@ export default function Login() {
       navigate(redirectPath, { replace: true });
     } else navigate(redirectPath, { replace: true });
   };
+
   const successLogin: () => Promise<void> = async () => {
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
       showConfirmButton: false,
-      timer: 3000,
+      timer: 3500,
       timerProgressBar: true,
       didOpen: (toast) => {
         toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -119,9 +120,9 @@ export default function Login() {
             >
               Password
             </label>
-            <div className="ms-3 border border-black rounded-lg p-1 flex justify-between items-center border border-black rounded-lg sm:px-2 px-0.5 sm:p-1 p-0.5">
+            <div className="ms-3 border border-black rounded-lg p-1 flex justify-between items-center sm:px-2 px-0.5 sm:p-1">
               <input
-                className="login__inputPassword  my-0.5  focus:border-0 focus-within:border-0 focus-visible:outline-0  my-0.5 max-w-[85%] grow"
+                className="login__inputPassword focus:border-0 focus-within:border-0 focus-visible:outline-0  my-0.5 max-w-[85%] grow"
                 type={showPassword ? "text" : "password"}
                 id="Password"
                 name="password"
@@ -156,14 +157,7 @@ export default function Login() {
             </button>
           </div>
         </form>
-        {/* <div className="text-center mx-auto relative my-2 ">
-          <p
-            className=" after:w-2/5 after:bg-black after:h-1 after:rounded-full after:-translate-y-0.5 after:top-1/2 after:absolute after:me-3 after:right-0 
-          before:w-2/5 before:bg-black before:h-1 before:rounded-full before:-translate-y-0.5 before:top-1/2 before:absolute before:ms-3 before:left-0 "
-          >
-            Or
-          </p>
-        </div> */}
+
         <div className="font-orelega text-center md:text-lg text-sm">
           <span>Don&apos;t have an account ? </span>
           <Link to="/register" className="text-primary capitalize">

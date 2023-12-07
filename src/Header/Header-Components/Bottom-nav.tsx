@@ -102,7 +102,7 @@ const BottomNav: React.FC = () => {
           </svg>
           Categories
         </Link>
-        {auth.isLogged ? (
+        {!auth.isLogged ? (
           <NavLink
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             className={`bottom-nav__link text-center capitalize text-sm font-orelega font-sm text-textFooterColor disabled hover:text-primary ${({
@@ -132,29 +132,19 @@ const BottomNav: React.FC = () => {
         ) : (
           <NavLink
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-            className={`bottom-nav__link text-center capitalize text-sm font-orelega font-sm text-textFooterColor disabled hover:text-primary ${({
+            className={`bottom-nav__link flex flex-col justify-center  items-center capitalize text-sm font-orelega font-sm text-textFooterColor  hover:text-primary ${({
               isActive,
               isPending,
             }: {
               isActive: boolean;
               isPending: boolean;
-            }) => (isActive ? "active" : isPending ? "pending" : "")}`}
-            to="login"
+            }) => (isActive ? "" : isPending ? "pending" : "")}`}
+            to="profile"
           >
-            <svg
-              className="mx-auto"
-              width="17"
-              height="19"
-              viewBox="0 0 17 19"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4.5127 4.40183C4.5127 6.75225 6.30736 8.66499 8.5127 8.66499C10.718 8.66499 12.5127 6.75225 12.5127 4.40183C12.5127 2.05141 10.718 0.138672 8.5127 0.138672C6.30736 0.138672 4.5127 2.05141 4.5127 4.40183ZM15.6238 18.1387H16.5127V17.1913C16.5127 13.5354 13.7207 10.5597 10.2905 10.5597H6.73492C3.30381 10.5597 0.512695 13.5354 0.512695 17.1913V18.1387H15.6238Z"
-                fill="#F0F0F0"
-              />
-            </svg>
-            profile
+            <span className="text-white bg-buttonColor rounded-full w-6  h-6 p-1 text-sm flex justify-center items-center">
+              {auth.username?.slice(0, 1)}
+            </span>
+            {auth.username}
           </NavLink>
         )}
       </div>

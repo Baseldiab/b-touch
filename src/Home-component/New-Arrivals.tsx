@@ -37,12 +37,12 @@ const Arrival: React.FC = () => {
   return (
     <section className="new-arrivals py-4">
       <div className="myContainer">
-        <div className="new-arrivals__header my-6 grid lg:grid-cols-3 grid-cols-1 items-center">
+        <div className="new-arrivals__header my-3 grid lg:grid-cols-3 grid-cols-1 items-center">
           <h2 className="new-arrivals__head font-normal font-orelega text-sm sm:text-xl md:text-2xl text-buttonColor text-center uppercase lg:col-start-2 drop-shadow-xl">
             new arrivals
           </h2>
           <div className="new-arrivals__btn lg:col-start-3 flex justify-end">
-            <button className="new-arrivals__btn md:rounded-xl rounded-md  hover:bg-gray-900 md:bg-black bg-mainBgColor text-textColor md:text-base text-xs md:px-4 font-normal md:font-extrabold md:py-2 px-1 py-1 font-roboto shadow-Btn md:shadow-none ">
+            <button className="new-arrivals__btn md:rounded-xl rounded-md  hover:bg-gray-900 md:bg-black bg-mainBgColor text-textColor md:text-base text-xs md:px-4 font-normal md:font-extrabold md:py-2 px-3 py-1 font-roboto shadow-Btn md:shadow-none ">
               View more
             </button>
           </div>

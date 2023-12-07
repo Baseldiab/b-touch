@@ -20,7 +20,10 @@ const LogoMenu: React.FC = () => {
    lg:hidden col-start-3 flex justify-end  my-3 sm:my-2"
       >
         <Search />
-        <Link className="uppercase text-white disabled relative" to="#">
+        <Link
+          className="main-nav__notification uppercase text-white disabled relative"
+          to="#"
+        >
           <span className="main-nav__notification-num text-primary absolute -top-3 right-1 text-xs">
             9
           </span>
@@ -36,8 +39,9 @@ const LogoMenu: React.FC = () => {
             />
           </svg>
         </Link>
+
         <Link
-          className="uppercase text-white disabled hover:text-primary"
+          className="main-nav__smCart uppercase text-white disabled hover:text-primary"
           to="#"
         >
           <svg

@@ -68,6 +68,9 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 
   const logout = () => {
     setToken("");
+    setUsername("");
+    setIsLogged(false);
+    localStorage.removeItem("username");
     localStorage.removeItem("token");
     localStorage.removeItem("isLogged");
   };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import Alert from "@mui/material/Alert";
@@ -7,6 +8,7 @@ import axios from "axios";
 import { FormEvent, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/Auth";
+import Swal from "sweetalert2";
 
 type ErrorData = Record<string, string[]>;
 
@@ -30,6 +32,25 @@ export default function Register() {
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const redirectPath = location.state?.path || "/login";
+
+  const successRegister: () => Promise<void> = async () => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    await Toast.fire({
+      icon: "success",
+      title: "Registration successful!",
+    });
+  };
 
   const navigateLogin = () => {
     if (auth.isLogged) {
@@ -62,6 +83,7 @@ export default function Register() {
       .then((data) => {
         console.log(data);
         navigateLogin();
+        successRegister();
       })
       .catch((error) => {
         console.error("Error retrieving product data:", error);

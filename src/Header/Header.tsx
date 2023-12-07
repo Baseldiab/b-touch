@@ -12,9 +12,11 @@ import { Link, NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import NavList from "./Header-Components/NavList";
 import LogoMenu from "./Header-Components/Logo-Menu";
+import { useAuth } from "../Auth/Auth";
 
 const Header: React.FC = () => {
   const [searchText, setSearchText] = useState("");
+  const auth = useAuth();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -75,21 +77,32 @@ const Header: React.FC = () => {
               </form>
 
               <div className="main-nav__left-icons basis-full lg:basis-1/6 hidden	 lg:flex lg:justify-end justify-center my-3 sm:my-2">
-                <NavLink
-                  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-                  className={`uppercase text-white disabled hover:text-primary ${({
-                    isActive,
-                    isPending,
-                  }: {
-                    isActive: boolean;
-                    isPending: boolean;
-                  }) => (isActive ? "active" : isPending ? "pending" : "")}`}
-                  to="login"
-                >
-                  <FontAwesomeIcon className="sm:mr-2 mx-2" icon={faUser} />
-                </NavLink>
+                {!auth.isLogged ? (
+                  <NavLink
+                    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                    className={`main-nav__lgLogin uppercase text-white disabled hover:text-primary ${({
+                      isActive,
+                      isPending,
+                    }: {
+                      isActive: boolean;
+                      isPending: boolean;
+                    }) => (isActive ? "active" : isPending ? "pending" : "")}`}
+                    to="login"
+                  >
+                    <FontAwesomeIcon className="sm:mr-2 mx-2" icon={faUser} />
+                  </NavLink>
+                ) : (
+                  <Link
+                    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                    className={`main-nav__lgLogin uppercase text-white bg-primary hover:bg-buttonColor rounded-full w-6  h-6 p-2 text-sm flex justify-center items-center`}
+                    to="profile"
+                    title="my account"
+                  >
+                    {auth.username?.slice(0, 1)}
+                  </Link>
+                )}
                 <Link
-                  className="uppercase text-white disabled hover:text-primary"
+                  className="main-nav__lgCart uppercase text-white disabled hover:text-primary"
                   to="#"
                 >
                   <FontAwesomeIcon

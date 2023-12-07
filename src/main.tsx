@@ -8,6 +8,9 @@ import Home from "./Home-page/Home";
 import { ContextProvider } from "./Auth/Auth.js";
 import Login from "./loginPage/Login.tsx";
 import Register from "./RegisterPage/Register.tsx";
+import Profile from "./profilePage/Profile.tsx";
+import RequireAuth from "./Require-Auth/Require-auth.tsx";
+import RequireLogin from "./Require-Auth/Require-login.tsx";
 
 const router = createBrowserRouter([
   {
@@ -20,11 +23,23 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <Login />,
+        element: (
+          <RequireLogin>
+            <Login />,
+          </RequireLogin>
+        ),
       },
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "profile",
+        element: (
+          <RequireAuth>
+            <Profile />
+          </RequireAuth>
+        ),
       },
     ],
   },

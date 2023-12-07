@@ -29,7 +29,7 @@ const BestOffers: React.FC = () => {
           </div>
         </div>
 
-        <div className="best-offers__products grid  app:grid-cols-3 lg:!grid-cols-6 grid-cols-2 gap-2 md:gap-4 justify-center items-center my-3">
+        <div className="best-offers__products grid  app:grid-cols-3 lg:!grid-cols-6 grid-cols-2 gap-2 md:gap-4 justify-center items-center">
           {bestOffers.slice(0, getWindowCardsCount()).map((item) => {
             return (
               <div

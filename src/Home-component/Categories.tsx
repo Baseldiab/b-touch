@@ -30,7 +30,7 @@ const Categories: React.FC = () => {
   return (
     <section className="categories bg-black lg:py-4 py-2">
       <div className="myContainer">
-        <div className="categories__header lg:my-3 my-1 grid  lg:grid-cols-3 grid-cols-1 items-center">
+        <div className="categories__header my-3  grid  lg:grid-cols-3 grid-cols-1 items-center">
           <h2 className="categories-head font-normal font-orelega text-sm sm:text-xl lg:text-2xl text-textColor text-center uppercase lg:col-start-2 ">
             POPULAR CATEGORIES
           </h2>
